@@ -3,14 +3,14 @@
 #include <vector>
 #include <memory>
 
-class OrValidators : 
+class OrValids : 
 	public IValidator
 {
 // Constructor/Destructor
 public:
-    OrValidators() {};
-    virtual ~OrValidators() {};
-    OrValidators(const OrValidators& obj)
+    OrValids() {};
+    virtual ~OrValids() {};
+    OrValids(const OrValids& obj)
     {
         // ユニークポインタの所有権を受け取る。
         size_t size = obj.m_validators.size();

@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 
-class AndValidators :
+class AndValids :
     public IValidator
 {
 // Overrides
@@ -20,34 +20,12 @@ public:
     }
 // Constructor/Destructor
 public:
-    //template <class... Args>
-    //And(Args... args)
-    //{
-    //    constexpr size_t size = sizeof...(Args);
-
-    //    for (auto e : { args... })
-    //    {
-    //        auto p = new decltype(e)(e);
-    //        auto u = std::unique_ptr<IValidator>(p);
-    //        m_validators.push_back(std::move(u));
-    //    }
-    //}
-
- /*   And(std::vector<IValidator*> validators)
-    {
-        for (auto& v : validators)
-        {
-            auto u = std::unique_ptr<IValidator>(v);
-            m_validators.push_back(std::move(u));
-        }
-    }*/
-
-    AndValidators()
+    AndValids()
     {
         std::cout << "Create And\n";
     }
 
-    AndValidators(const AndValidators & obj)
+    AndValids(const AndValids & obj)
     {
         std::cout << "Copy And\n";
         // ユニークポインタの所有権を受け取る。
@@ -58,7 +36,7 @@ public:
         }
     }
 
-    virtual ~AndValidators()
+    virtual ~AndValids()
     {
         m_validators.clear();
         printf("Delete And\n");

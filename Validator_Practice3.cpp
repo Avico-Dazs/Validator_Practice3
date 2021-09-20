@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 #include "IValidator.h"
-#include "AndValidators.h"
-#include "OrValidators.h"
+#include "AndValids.h"
+#include "OrValids.h"
 #include "IsDigit.h"
 #include "GreaterThan.h"
 #include "LessThan.h"
@@ -16,18 +16,18 @@ int main()
     std::cout << "Hello World!\n";
 
     {
-        AndValidators and1;
+        AndValids and1;
         and1.Add(IsDigit());
         and1.Add(GreaterThan(1));
         and1.Add(LessThan(3));
         
-        AndValidators and2;
+        AndValids and2;
         and2.Add(IsDigit());
         and2.Add(GreaterThan(5));
         and2.Add(LessThan(8));
 
         // 数値 1~3 or 5~8ならOK
-        OrValidators v;
+        OrValids v;
         v.Add(and1);
         v.Add(and2);
         

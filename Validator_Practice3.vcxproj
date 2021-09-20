@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -139,15 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Interval.cpp" />
     <ClCompile Include="Validator_Practice3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AndValidators.h" />
+    <ClInclude Include="AndValids.h" />
     <ClInclude Include="GreaterThan.h" />
+    <ClInclude Include="Interval.h" />
     <ClInclude Include="IsDigit.h" />
     <ClInclude Include="IValidator.h" />
     <ClInclude Include="LessThan.h" />
-    <ClInclude Include="OrValidators.h" />
+    <ClInclude Include="OrValids.h" />
     <ClInclude Include="ValidationResult.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
