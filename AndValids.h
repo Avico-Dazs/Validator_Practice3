@@ -28,7 +28,6 @@ public:
     AndValids(const AndValids & obj)
     {
         std::cout << "Copy And\n";
-        // ユニークポインタの所有権を受け取る。
         size_t size = obj.m_validators.size();
         for (size_t i = 0; i < size; i++)
         {

@@ -139,18 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Interval.cpp" />
     <ClCompile Include="Validator_Practice3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AndValids.h" />
+    <ClInclude Include="ExcludingChars.h" />
     <ClInclude Include="GreaterThan.h" />
     <ClInclude Include="Interval.h" />
     <ClInclude Include="IsDigit.h" />
     <ClInclude Include="IValidator.h" />
     <ClInclude Include="LessThan.h" />
     <ClInclude Include="OrValids.h" />
+    <ClInclude Include="PasswordValidFactory.h" />
+    <ClInclude Include="StringLength.h" />
     <ClInclude Include="ValidationResult.h" />
+    <ClInclude Include="ValidFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

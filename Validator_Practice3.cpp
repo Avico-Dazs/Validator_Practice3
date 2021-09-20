@@ -9,38 +9,66 @@
 #include "IsDigit.h"
 #include "GreaterThan.h"
 #include "LessThan.h"
+#include "PasswordValidFactory.h"
 
+void Sample1()
+{
+    AndValids sub1;
+    sub1.Add(IsDigit());
+    sub1.Add(GreaterThan(1));
+    sub1.Add(LessThan(3));
+
+    AndValids sub2;
+    sub2.Add(IsDigit());
+    sub2.Add(GreaterThan(5));
+    sub2.Add(LessThan(8));
+
+    // 数値 1~3 or 5~8ならOK
+    OrValids v;
+    v.Add(sub1);
+    v.Add(sub2);
+
+    for (int i = 0; i < 10; i++)
+    {
+        ValidationResult res;
+        char ch[32];
+        sprintf_s(ch, "%d", i);
+        std::cout << i;
+        std::cout << (v.Eval(ch, res) ? " OK" : " NG");
+        std::cout << std::endl;
+    }
+}
+
+void Sample_PasswordValidFactory()
+{
+    std::cout << "Sample_PasswordValidFactory" << std::endl;
+    PasswordValidFactory factory;
+    IValidator* validator = factory.Create(0, 0, 0);
+    // --- これと同じ ---
+    // AndValids *validator = new AndValids();
+    // validator.Add(StringLength(6))
+    // validator.Add(ExcludingChars(".,*()@\"\'-\."));
+    
+    ValidationResult result;
+
+    // 評価OK
+    std::cout << (validator->Eval("pass1", result) ? "OK" : "NG") << std::endl;
+
+    // 文字数上限を超えている
+    std::cout << (validator->Eval("1234567", result) ? "OK" : "NG") << std::endl;
+
+    // 禁止文字列が入っている
+    std::cout << (validator->Eval("123.45", result) ? "OK" : "NG") << std::endl;
+
+    delete validator;
+}
 
 int main()
 {
     std::cout << "Hello World!\n";
 
-    {
-        AndValids and1;
-        and1.Add(IsDigit());
-        and1.Add(GreaterThan(1));
-        and1.Add(LessThan(3));
-        
-        AndValids and2;
-        and2.Add(IsDigit());
-        and2.Add(GreaterThan(5));
-        and2.Add(LessThan(8));
-
-        // 数値 1~3 or 5~8ならOK
-        OrValids v;
-        v.Add(and1);
-        v.Add(and2);
-        
-        for (int i = 0; i < 10; i++)
-        {
-            ValidationResult res;
-            char ch[32];
-            sprintf_s( ch, "%d", i);
-            std::cout << i;
-            std::cout << (v.Eval(ch, res) ? " OK" : " NG");
-            std::cout << std::endl;
-        }
-    }
+    Sample1();
+    Sample_PasswordValidFactory();
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
